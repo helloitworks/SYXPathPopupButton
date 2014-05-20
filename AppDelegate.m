@@ -14,7 +14,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.pathPopupButton.defaultDirs =[[NSMutableArray alloc] initWithObjects:[@"~/Desktop" stringByStandardizingPath],
+                                       [@"~" stringByStandardizingPath],
+                                       [@"~/Downloads" stringByStandardizingPath],
+                                       [@"~/Movies" stringByStandardizingPath],
+                                       [@"~/Music" stringByStandardizingPath],
+                                       [@"~/Pictures" stringByStandardizingPath],
+                                       [@"~/Documents" stringByStandardizingPath],nil];
+    
     self.pathPopupButton.recentDirs = [[NSMutableArray alloc] initWithObjects:[@"~/Desktop" stringByStandardizingPath],
                                        [@"~/Applications" stringByStandardizingPath],
                                        [@"/users" stringByStandardizingPath],

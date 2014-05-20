@@ -5,6 +5,16 @@
 
 #import "SYXPathPopupButton.h"
 
+/*一些注意的地方
+ 1、怎么添加名称重复的Item?
+ 采用[self addItemWithTitle:title]; 并不能添加名字重复的item
+ 采用[self.menu addItem:newItem];可以添加名字重复的item
+ 
+ 2、怎么自定义NSMenuItem，比如像"个人收藏“那样的MenuItem。
+ 通过 NSMenuItem的函数setIndentationLevel:，并不能实现图中"个人收藏“那样的MenuItem。
+ 自定义该NSMenuItem可以通过函数setView:，具体的实现可以参看源代码中的函数categoryMenuItemWithTitle：
+*/
+
 static const NSUInteger kMenuIconWidth = 16;
 static const NSUInteger kMenuIconHeigh = 16;
 static const NSRect kCategoryMenuItemViewBounds = {0, 0, 100,18};
@@ -47,7 +57,6 @@ typedef enum
 {
 	[self setPullsDown:FALSE];
 	[self setAutoenablesItems:NO];
-    
     [self reloadData];
    
     //popupButton打开的事件，不能通过action，只能通过self.menu.delegate跟menuWillOpen
