@@ -21,6 +21,8 @@ static const NSRect kCategoryMenuItemViewBounds = {0, 0, 100,18};
 static const NSRect kCategoryMenuItemTextFieldBounds = {8, 0, 100,18};
 static const NSUInteger kCategoryMenuItemTitleFontSize = 11;
 
+static const NSUInteger kMaxRecentDirsCount = 5;
+
 /*
 typedef enum
 {
@@ -51,12 +53,13 @@ typedef enum
 @synthesize defaultDirs = _defaultDirs;
 @synthesize recentDirs = _recentDirs;
 @synthesize selectedDir = _selectedDir;
-
+@synthesize maxRecentDirsCount = _maxRecentDirsCount;
 
 -(void)awakeFromNib
 {
 	[self setPullsDown:FALSE];
 	[self setAutoenablesItems:NO];
+    [self setMaxRecentDirsCount:kMaxRecentDirsCount];
     [self reloadData];
    
     //popupButton打开的事件，不能通过action，只能通过self.menu.delegate跟menuWillOpen
@@ -133,10 +136,16 @@ typedef enum
     {
         [self.menu addItem:[NSMenuItem separatorItem]];
         [self.menu addItem:[self categoryMenuItemWithTitle:@"最近访问的位置"]];
-        
+        NSUInteger count = 0;
         for (NSString *dir in self.recentDirs)
         {
+            if (count == self.maxRecentDirsCount)
+            {
+                return;
+            }
+            
             [self.menu addItem:[self menuItemWithDir:dir]];
+            count ++;
         }
     }
   

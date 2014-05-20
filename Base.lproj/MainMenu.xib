@@ -678,7 +678,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fc-CG-fvL" customClass="SYXPathPopupButton">
-                        <rect key="frame" x="146" y="93" width="156" height="26"/>
+                        <rect key="frame" x="146" y="118" width="156" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tZi-PX-96l" id="Jbe-BL-RQi">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -693,7 +693,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="667-QZ-nfT">
-                        <rect key="frame" x="307" y="95" width="25" height="22"/>
+                        <rect key="frame" x="307" y="120" width="25" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="openDir" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="w6i-Wb-7hz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -704,7 +704,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-XE-9Kc">
-                        <rect key="frame" x="100" y="98" width="43" height="17"/>
+                        <rect key="frame" x="100" y="123" width="43" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="位置：" id="60O-VD-eoC">
                             <font key="font" size="13" name="STHeitiSC-Light"/>

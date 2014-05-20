@@ -9,16 +9,20 @@
 	NSMutableArray *_recentDirs;
     //选中的目录
     NSString *_selectedDir;
+    
+    //最近访问位置最多展示条数
+    NSUInteger _maxRecentDirsCount;
 }
 
 @property (retain) NSMutableArray *defaultDirs;
 @property (retain) NSMutableArray *recentDirs;
 @property (retain) NSString *selectedDir;
+@property (assign) NSUInteger maxRecentDirsCount;
 
 // 目录的路径
 -(NSString *)stringValue;
 
-//重新加载数据 
+//重新加载数据
 - (void)reloadData;
 
 
