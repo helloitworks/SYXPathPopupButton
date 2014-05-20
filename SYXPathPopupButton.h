@@ -9,15 +9,16 @@
 	NSMutableArray *_recentDirs;
     //选中的目录
     NSString *_selectedDir;
-
 }
 
 @property (retain) NSMutableArray *defaultDirs;
 @property (retain) NSMutableArray *recentDirs;
-
 @property (retain) NSString *selectedDir;
 
+// 目录的路径
 -(NSString *)stringValue;
+
+//重新加载数据 
 - (void)reloadData;
 
 
