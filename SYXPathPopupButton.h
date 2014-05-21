@@ -16,11 +16,14 @@
 
 @property (retain) NSMutableArray *defaultDirs;
 @property (retain) NSMutableArray *recentDirs;
-@property (retain) NSString *selectedDir;
+@property (copy) NSString *selectedDir;
 @property (assign) NSUInteger maxRecentDirsCount;
 
 // 目录的路径
 -(NSString *)stringValue;
+
+- (void)changeSelectedDir:(NSString *)dir;
+
 
 //重新加载数据
 - (void)reloadData;

@@ -25,6 +25,8 @@
     self.pathPopupButton.recentDirs = [[NSMutableArray alloc] initWithObjects:[@"~/Desktop" stringByStandardizingPath],
                                        [@"~/Applications" stringByStandardizingPath],
                                        [@"/users" stringByStandardizingPath],
+                                       [@"~/Music" stringByStandardizingPath],
+
                                        [@"/bin" stringByStandardizingPath],nil];
     [self.pathPopupButton reloadData];
 }
@@ -55,8 +57,10 @@
          if( NSFileHandlingPanelOKButton == result )
          {
              NSString * dir = [[openPanel URL] relativePath];
+             [self.pathPopupButton changeSelectedDir:dir];
+             
+             //将选中的插入并更新列表
              [self.pathPopupButton.recentDirs insertObject:dir atIndex:0];
-             self.pathPopupButton.selectedDir = dir;
              [self.pathPopupButton reloadData];
          }
          

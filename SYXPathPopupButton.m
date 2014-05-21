@@ -67,6 +67,7 @@ typedef enum
 }
 
 
+
 - (NSMenuItem *)menuItemWithDir:(NSString *)dir
 {
     NSMenuItem* menuItem = [[NSMenuItem alloc] init];
@@ -120,6 +121,11 @@ typedef enum
     }
     
     [self removeDuplicatedDir];
+    
+    if (self.selectedDir == NULL || [self.selectedDir isEqualToString:@""])
+    {
+        self.selectedDir = [self.defaultDirs objectAtIndex:0];
+    }
     
     [self.menu addItem:[self menuItemWithDir:self.selectedDir]];
     
@@ -203,29 +209,40 @@ typedef enum
         }
     }
     
-    if (self.selectedDir == NULL || [self.selectedDir isEqualToString:@""])
-    {
-        self.selectedDir = [self.defaultDirs objectAtIndex:0];
-    }
+
 }
 
 
-- (void)selectItem:(NSMenuItem *)item{
+
+- (void)selectItem:(NSMenuItem *)item
+{
     //todo: 可以通过indexOfSelectedItem，取得相应的值，而不是通过toolTip
     //NSInteger i = [self indexOfSelectedItem];
     //...
-   
-    NSMenuItem *menuItem = [self itemAtIndex:0];
-    [menuItem setTitle:item.title];
-    [menuItem setToolTip:item.toolTip];
-    [self selectItemAtIndex:0];
     
-    /*
-     self.selectedDir = item.toolTip;
-     [self reloadData];
-     */
+    NSString *dir = item.toolTip;
+    //菜单选中定位到第一行
+    [self changeSelectedDir:dir];
+    
+    //菜单选中定位到当中选中的
+    //[super selectItem:item];
 }
 
+
+- (void)changeSelectedDir:(NSString *)dir
+{
+    if (_selectedDir != dir)
+    {
+        [_selectedDir release];
+        _selectedDir = [dir copy];
+        
+        NSMenuItem * newMenuItem = [self menuItemWithDir:dir];
+        [self.menu removeItemAtIndex:0];
+        [self.menu insertItem:newMenuItem atIndex:0];
+        [self selectItemAtIndex:0];
+    }
+    
+}
 
 
 /* popupButton打开的事件
