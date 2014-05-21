@@ -26,7 +26,6 @@
                                        [@"~/Applications" stringByStandardizingPath],
                                        [@"/users" stringByStandardizingPath],
                                        [@"~/Music" stringByStandardizingPath],
-
                                        [@"/bin" stringByStandardizingPath],nil];
     [self.pathPopupButton reloadData];
 }

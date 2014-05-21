@@ -120,7 +120,7 @@ typedef enum
                             [@"~/Documents" stringByStandardizingPath],nil];
     }
     
-    [self removeDuplicatedDir];
+    [self removeNotExitOrDuplicatedDir];
     
     if (self.selectedDir == NULL || [self.selectedDir isEqualToString:@""])
     {
@@ -157,8 +157,8 @@ typedef enum
   
 }
 
-//删除重复的目录
-- (void)removeDuplicatedDir
+//“个人收藏”与”最近访问的位置“都会对其自身列表进行去重操作，同时”最近访问的位置“也会根据”个人收藏“进行去重，也即出现在”个人收藏“的路径，就不会出现在”最近访问的位置里“
+- (void)removeNotExitOrDuplicatedDir
 {
     NSMutableArray *allDirs = [[[NSMutableArray alloc] init] autorelease];
     // defaultDir本身不能有重复
