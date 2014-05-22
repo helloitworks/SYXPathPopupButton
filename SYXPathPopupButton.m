@@ -239,9 +239,10 @@ typedef enum
         NSMenuItem * newMenuItem = [self menuItemWithDir:dir];
         [self.menu removeItemAtIndex:0];
         [self.menu insertItem:newMenuItem atIndex:0];
-        [self selectItemAtIndex:0];
     }
-    
+    //bug fix:两次选中同一个item，左侧的√该目录上，而非在第一行；
+    [self selectItemAtIndex:0];
+
 }
 
 
